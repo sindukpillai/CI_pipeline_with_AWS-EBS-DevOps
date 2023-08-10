@@ -1,0 +1,60 @@
+AWS Beanstalk - creation of CI pipeline 
+Elsatic Beanstalk Services
+EBS - PAAS (Platform As A Service)
+Create EBS in AWS
+Create RDS in AWS
+upload Artifacts
+Clone the source code from Github
+Deploy it
+
+***********************
+EBS on AWS
+application name - vprofile
+environment - webserver
+env name - vprofile-prod
+domain name - vprofiledom
+platform
+Tomcat server
+branch 
+Tomcat 8.5 corretto running on 64 bit Amazon Linux2
+create sample application
+service role
+New IAM role with EBSADMIN privileges
+vpc - default VPC
+Launch EBS Instance
+**********************************
+Create  RDS Instance with volume 20 on AWS
+with load balancer 
+min server-2
+max server-8
+with rolling property
+50% load balancing for health checkups
+***********************************
+create security groups in RDS instance with
+customTCP with port number 3306 with EBSinstancesecurity group in order to communicate bwetween EBS and RDS
+Remove public port from inbound rume to revoke communication from outside world for database security
+***************************************
+SSH login to Beanstalk
+take public ip from EBS public ip
+ssh -i Downloads/vprofile-bean-key.pem ec2-user@54.91.41.196
+sudo -i
+yum install mariadb -y //install SQL client
+**********************************************
+
+Connect RDS with ssh in order to login and configure database for application
+
+mysql -h vprofile-rds-prod.c5dtvefdjyow.us-east-1.rds.amazonaws.com-u admin -p <password> accounts < src/sources/main/sql_db.sql
+
+display tables
+exit
+*********************************************
+Clone source code and upload artifacts
+github.com/devopshyd/vprofile-project/
+copy code link and paste to gitbash vprofile project folder to download and cone source code to default application
+
+
+
+
+
+
+
